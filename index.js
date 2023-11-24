@@ -9,6 +9,7 @@ import pending from "./models/pending.js";
 import manageRoute from "./routes/manage.js";
 import cors from "cors";
 import path from "path";
+import {fileURLToPath} from 'url';
 
 // Managing the Unverified User || Verification Pending Users
 setInterval(async () => {
@@ -21,6 +22,9 @@ dotenv.config();
 // configuring database
 connectdb();
 
+// es  module fix
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 // setting express app
 const app = express();
 
